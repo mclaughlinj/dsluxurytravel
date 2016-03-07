@@ -43,6 +43,17 @@ $( document ).ready(function() {
       return false;
   });
 
+  $('.xcontact__content__form__submit').click( function (e) {
+    e.preventDefault();
+    $.post('/',{to:'to',subject:'subject',text:'text'},function(home, data){
+        alert(data);
+        if(data = 'success')
+        {
+            $('.contact__content__form').empty().html('Email is been sent at  Please check inbox !');
+        }
+    });
+  });
+
 });
 
 $( window ).resize(function() {

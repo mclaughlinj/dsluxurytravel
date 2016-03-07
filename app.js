@@ -73,8 +73,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'client')));
 
 app.use('/', routes);
-app.use('/content', content);
 app.use('/contact', contact);
+app.use('/content', content);
 app.use('/jquery', jquery);
 
 // catch 404 and forward to error handler
@@ -115,44 +115,6 @@ app.get('/echo', exposeTemplates, function (req, res) {
     console.log(templates);
 });
 
-// create reusable transporter object using the default SMTP transport
-var transporter = nodemailer.createTransport(sendmailTransport({
-  path: '/usr/sbin/sendmail'
-}));
-
-// setup e-mail data with unicode symbols
-var mailOptions = {
-    from: 'mclaughlinj@modpsy.co.uk', // sender address
-    to: 'mclaughlinj@mac.com', // list of receivers
-    subject: 'Hello', // Subject line
-    text: 'Hello world', // plaintext body
-    html: '<b>Hello world</b>' // html body
-};
-
-// send mail with defined transport object
-transporter.sendMail(mailOptions, function(error, info){
-    if(error){
-        return console.log(error);
-    }
-    console.log('Message sent to ' + mailOptions.to);
-    console.log('Message info: ' + info);
-    console.log(info);
-});
-
 app.listen(3030);
-
-// send contact form
-app.post('/', function (req, res) {
-    console.log('Submit pressed');
-    //Email not sent
-      if (error) {
-          res.render('home', { pageTitle: 'Mail failed' })
-      }
-      //Yay!! Email sent
-      else {
-          res.render('home', { pageTitle: 'Mail success'})
-      }
-});
-
 
 module.exports = app;
