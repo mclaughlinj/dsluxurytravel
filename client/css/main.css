@@ -73,24 +73,31 @@ header {
   right: 0;
   width: 100%; }
 
-.home__splash, .about__splash {
-  background-image: url("../img/home_bg.png");
+.home__splash, .about__splash, .contact__splash {
+  background-image: url("../img/home_bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top center;
   position: relative; }
   @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
-    .home__splash, .about__splash {
-      background-image: url("../img/home_bg@2x.png"); } }
+    .home__splash, .about__splash, .contact__splash {
+      background-image: url("../img/home_bg@2x.jpg"); } }
 
 .about__splash {
-  background-image: url("../img/about_bg.png");
+  background-image: url("../img/about_bg.jpg");
   background-position: top left; }
   @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
     .about__splash {
-      background-image: url("../img/about_bg@2x.png"); } }
+      background-image: url("../img/about_bg@2x.jpg"); } }
 
-.home__gradient, .about__gradient {
+.contact__splash {
+  background-image: url("../img/contact_bg.jpg");
+  background-position: top left; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .contact__splash {
+      background-image: url("../img/contact_bg@2x.jpg"); } }
+
+.home__gradient, .about__gradient, .contact__gradient {
   background: -webkit-linear-gradient(#04294b, rgba(4, 41, 75, 0));
   /*Safari 5.1-6*/
   background: -o-linear-gradient(#04294b, rgba(4, 41, 75, 0));
@@ -101,7 +108,7 @@ header {
   /*Standard*/
   height: 40%; }
 
-.home__section__header, .about__section__header {
+.home__section__header, .about__section__header, .contact__section__header {
   font-size: 18px;
   font-weight: normal;
   font-size: larger;
@@ -109,7 +116,7 @@ header {
   color: #fff;
   text-shadow: 0 0 2px #191814; }
 
-.home__section__mainContent, .about__section__mainContent {
+.home__section__mainContent, .about__section__mainContent, .contact__section__mainContent {
   clear: both;
   display: none;
   color: #fff;
@@ -117,13 +124,13 @@ header {
   position: static;
   padding: 5px; }
 
-.home__section__mainContent p, .about__section__mainContent p, .about__section__mainContent p {
+.home__section__mainContent p, .about__section__mainContent p, .contact__section__mainContent p, .about__section__mainContent p, .contact__section__mainContent p {
   margin: 0.2em 0;
   line-height: 1.3em;
   font-size: 0.8em;
   text-shadow: 0 0 2px #191814; }
 
-.home__section__footer, .about__section__footer {
+.home__section__footer, .about__section__footer, .contact__section__footer {
   font-size: 0.5em;
   color: #fff;
   text-align: center;
@@ -133,7 +140,7 @@ header {
   width: 100%;
   display: none; }
 
-.home__splash__continue, .about__splash__continue {
+.home__splash__continue, .about__splash__continue, .contact__splash__continue {
   display: none;
   color: #fff;
   text-align: center;
@@ -144,15 +151,15 @@ header {
   background-color: rgba(4, 41, 75, 0.3);
   padding: 10px 0 5px 0; }
 
-.home__section__contentBorder, .about__section__contentBorder {
+.home__section__contentBorder, .about__section__contentBorder, .contact__section__contentBorder {
   padding: 5px;
   position: relative;
   top: 100px; }
 
-.about__section__contentBorder {
+.about__section__contentBorder, .contact__section__contentBorder {
   top: 80px; }
 
-.about__section__contentContainer, .home__section__contentContainer {
+.about__section__contentContainer, .home__section__contentContainer, .contact__section__contentContainer {
   padding: 5px;
   overflow: scroll; }
 
@@ -271,7 +278,7 @@ article footer {
 .tapable {
   cursor: pointer; }
 
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 569px) {
   body {
     font-size: 18px; }
   header, nav, footer, article {
@@ -311,10 +318,17 @@ article footer {
     display: none; }
   .display {
     left: 0px; }
-  .home__section__footer, .about__section__footer {
-    display: block; }
+  .home__section__footer, .about__section__footer, .contact__section__footer {
+    display: block;
+    font-size: 0.7em; }
   footer {
     text-align: right; } }
+
+@media only screen and (min-width: 768px) {
+  h2 {
+    font-size: 1.2em; }
+  .home__section__mainContent p, .about__section__mainContent p, .contact__section__mainContent p, .about__section__mainContent p, .contact__section__mainContent p {
+    font-size: 1.0em; } }
 
 @media only screen and (min-width: 1025px) {
   body {
@@ -337,11 +351,15 @@ article footer {
   nav {
     height: 40px;
     right: 0;
-    top: 67px;
+    top: 76px;
     width: 100%;
     transition: background 1s, left 1s; }
+  .page__nav__li {
+    margin-right: 20px; }
   .page__aside__contact__div {
     height: 77px; }
+  .page__nav__contact__social__div {
+    display: none; }
   .page__aside__contact__social__div {
     display: inline-block;
     vertical-align: top;
@@ -357,18 +375,20 @@ article footer {
     visibility: hidden; }
   nav ul {
     width: 100%; }
-  .home__splash, .about__splash, .about__splash {
+  .home__splash, .about__splash, .contact__splash, .about__splash, .contact__splash {
     background-size: cover;
     background-position: bottom right; }
-  .home__section__mainContent, .about__section__mainContent, .about__section__mainContent {
+  .contact__splash {
+    background-position: center right; }
+  .home__section__mainContent, .about__section__mainContent, .contact__section__mainContent, .about__section__mainContent, .contact__section__mainContent {
     font-size: 1.5em;
     padding-top: 200px;
     position: static; }
-  .about__section__mainContent {
+  .about__section__mainContent, .contact__section__mainContent {
     padding-top: 180px; }
-  .about__section__contentContainer, .home__section__contentContainer {
+  .about__section__contentContainer, .home__section__contentContainer, .contact__section__contentContainer {
     padding: 10px 10px 20px 10px; }
-  .home__section__contentBorder, .about__section__contentBorder {
+  .home__section__contentBorder, .about__section__contentBorder, .contact__section__contentBorder, .contact__section__contentBorder {
     max-height: 600px;
     width: 640px;
     padding: 20px;
@@ -379,7 +399,7 @@ article footer {
     float: right;
     width: 640px;
     padding: 20px;
-    margin-right: 100px;
+    margin-right: 80px;
     position: static; }
-  .home__section__footer, .about__section__footer, .about__section__footer {
+  .home__section__footer, .about__section__footer, .contact__section__footer, .about__section__footer, .contact__section__footer {
     font-size: 1.0em; } }

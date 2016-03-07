@@ -9,8 +9,8 @@ $( document ).ready(function() {
   //get('https://prioritymomentsapi-lb.ref.o2.co.uk/offerService/geosearch/0,0/447700000401/5405f475e4b0d6d7e08299ee', succeeded, 'testing');
 
   // Fade in
-  $('.home__section__mainContent, .about__section__mainContent').fadeIn(2000, function() {
-      $('.home__splash__continue, .about__splash__continue').fadeIn( 2000 );
+  $('.home__section__mainContent, .about__section__mainContent, .contact__section__mainContent').fadeIn(2000, function() {
+      $('.home__splash__continue, .about__splash__continue, .contact__splash__continue').fadeIn( 2000 );
     });
 
   $('.page__nav__reveal__div').mouseenter(function() {
@@ -29,9 +29,9 @@ $( document ).ready(function() {
   });
 
   $('.home__splash').css({'height': viewHeight});
-  $('.about__splash').css({'height': viewHeightUnadjusted});
-  $('.home__gradient, .about__gradient').css({'height': viewHeightHalf});
-  $('.about__section__contentContainer, .home__section__contentContainer').css({'max-height': viewHeightHalf});
+  $('.about__splash, .contact__splash').css({'height': viewHeightUnadjusted});
+  $('.home__gradient, .about__gradient, .contact__gradient').css({'height': viewHeightHalf});
+  $('.about__section__contentContainer, .home__section__contentContainer, .contact__section__contentContainer').css({'max-height': viewHeightHalf});
 
   $('a[href^="#"]').click(function(){
       var anchor = $.attr(this, 'href');
@@ -50,9 +50,9 @@ $( window ).resize(function() {
   viewHeightUnadjusted = $( window ).height() + 'px',
   viewHeightHalf = $( window ).height()/2 + 'px';
   $('.home__splash').css({'height': viewHeight});
-  $('.about__splash').css({'height': viewHeightUnadjusted});
-  $('.home__gradient, .about__gradient').css({'height': viewHeightHalf});
-  $('.about__section__contentContainer, .home__section__contentContainer').css({'max-height': viewHeightHalf});
+  $('.about__splash, .contact__splash').css({'height': viewHeightUnadjusted});
+  $('.home__gradient, .about__gradient, .contact__gradient').css({'height': viewHeightHalf});
+  $('.about__section__contentContainer, .home__section__contentContainer, .contact__section__contentContainer').css({'max-height': viewHeightHalf});
 });
 
 function succeeded(output) {

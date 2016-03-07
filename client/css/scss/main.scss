@@ -96,7 +96,7 @@ header {
 }
 
 .home__splash {
-  @include at2xBg('../img/home_bg', png);
+  @include at2xBg('../img/home_bg', jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top center;
@@ -105,7 +105,13 @@ header {
 
 .about__splash {
   @extend .home__splash;
-  @include at2xBg('../img/about_bg', png);
+  @include at2xBg('../img/about_bg', jpg);
+  background-position: top left;
+}
+
+.contact__splash {
+  @extend .home__splash;
+  @include at2xBg('../img/contact_bg', jpg);
   background-position: top left;
 }
 
@@ -120,6 +126,11 @@ header {
 .about__gradient {
   @extend .home__gradient;
 }
+
+.contact__gradient {
+  @extend .home__gradient;
+}
+
 
 .home__section__header {
   font-size: 18px;
@@ -139,7 +150,7 @@ header {
   padding: 5px;
 }
 
-.home__section__mainContent p, .about__section__mainContent p {
+.home__section__mainContent p, .about__section__mainContent p, .contact__section__mainContent p {
   margin: 0.2em 0;
   line-height: 1.3em;
   font-size: 0.8em;
@@ -169,11 +180,11 @@ header {
   padding: 10px 0 5px 0;
 }
 
-.about__section__header {
+.about__section__header, .contact__section__header {
   @extend .home__section__header;
 }
 
-.about__section__mainContent {
+.about__section__mainContent, .contact__section__mainContent {
   @extend .home__section__mainContent;
 }
 
@@ -183,21 +194,21 @@ header {
   top: 100px;
 }
 
-.about__section__contentBorder {
+.about__section__contentBorder, .contact__section__contentBorder {
   @extend .home__section__contentBorder;
   top: 80px;
 }
 
-.about__section__contentContainer, .home__section__contentContainer {
+.about__section__contentContainer, .home__section__contentContainer, .contact__section__contentContainer {
   padding: 5px;
   overflow: scroll;
 }
 
-.about__section__footer {
+.about__section__footer, .contact__section__footer {
   @extend .home__section__footer;
 }
 
-.about__splash__continue {
+.about__splash__continue, .contact__splash__continue {
   @extend .home__splash__continue;
 }
 
@@ -326,7 +337,7 @@ article footer {
   cursor: pointer;
 }
 
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 569px) {
   body {
     font-size: 18px;
   }
@@ -392,11 +403,24 @@ article footer {
 
   .home__section__footer {
     display: block;
+    font-size: 0.7em;
   }
 
   footer {
     text-align: right;
   }
+}
+
+@media only screen and (min-width: 768px) {
+
+  h2 {
+    font-size: 1.2em;
+  }
+
+  .home__section__mainContent p, .about__section__mainContent p, .contact__section__mainContent p {
+    font-size: 1.0em;
+  }
+
 }
 
 @media only screen and (min-width: 1025px) {
@@ -426,14 +450,23 @@ article footer {
   nav {
     height: 40px;
     right: 0;
-    top: 67px;
+    top: 76px;
     width: 100%;
     transition: background 1s, left 1s;
+  }
+
+  .page__nav__li {
+    margin-right: 20px;
   }
 
   .page__aside__contact__div {
     height: 77px;
   }
+
+  .page__nav__contact__social__div {
+    display: none;
+  }
+
 
   .page__aside__contact__social__div {
     display: inline-block;
@@ -460,26 +493,30 @@ article footer {
     width: 100%;
   }
 
-  .home__splash, .about__splash {
+  .home__splash, .about__splash, .contact__splash {
     background-size: cover;
     background-position: bottom right;
   }
 
-  .home__section__mainContent, .about__section__mainContent {
+  .contact__splash {
+    background-position: center right;
+  }
+
+  .home__section__mainContent, .about__section__mainContent, .contact__section__mainContent {
     font-size: 1.5em;
     padding-top: 200px;
     position: static;
   }
 
-  .about__section__mainContent {
+  .about__section__mainContent, .contact__section__mainContent {
     padding-top: 180px;
   }
 
-  .about__section__contentContainer, .home__section__contentContainer {
+  .about__section__contentContainer, .home__section__contentContainer, .contact__section__contentContainer, {
     padding: 10px 10px 20px 10px;
   }
 
-  .home__section__contentBorder {
+  .home__section__contentBorder, .contact__section__contentBorder {
     max-height: 600px;
     width: 640px;
     padding: 20px;
@@ -492,11 +529,11 @@ article footer {
     float: right;
     width: 640px;
     padding: 20px;
-    margin-right: 100px;
-    position: static
+    margin-right: 80px;
+    position: static;
   }
 
-  .home__section__footer, .about__section__footer {
+  .home__section__footer, .about__section__footer, .contact__section__footer {
     font-size: 1.0em;
   }
 
