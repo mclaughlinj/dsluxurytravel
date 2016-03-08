@@ -8,8 +8,7 @@ router.get('/', function(req, res) {
   res.render('home', {pageTitle: 'DS Luxury Travel Private Driver Services'});
 });
 
-router.post('/', function(req,res){
-  console.log(mailOptions);
+router.post('/', function(req, res){
 
   // create reusable transporter object using the default SMTP transport
   var transporter = nodemailer.createTransport(sendmailTransport({
@@ -20,21 +19,30 @@ router.post('/', function(req,res){
   var mailOptions = {
       from: req.body.email, // sender address
       to: 'mclaughlinj@mac.com', // list of receivers
-      subject: 'DS Luxury Travel Web Enquiry', // Subject line
-      text: req.body.special + '/r' + req.body.name // plaintext body
+      subject: 'DS Luxury Travel Web Enquiry TEST', // Subject line
+      text: 'Client name: ' + req.body.name
+       + '\nClient email:' + req.body.email
+       + '\nClient email:' + req.body.email
+       + '\r(R)Client email:' + req.body.email
+       + '\nClient email:' + req.body.email
+       + '\nClient email:' + req.body.email
+       + '\nClient email:' + req.body.email
   };
+
+          console.log(mailOptions);
 
   transporter.sendMail(mailOptions, function (error, response) {
       //Email not sent
       if (error) {
-          console.log(error);
-          res.render('home', { pageTitle: 'Fail', msg: 'Error occured, message not sent.', err: true, page: 'contact' });
-
+          var success = {success: false};
+          console.log(response);
+          res.json(success);
       }
       //Yay!! Email sent
       else {
+          var success = {success: true};
           console.log(response);
-          res.render('home', { pageTitle: 'Success', msg: 'Message sent! Thank you.', err: false, page: 'contact' });
+          res.json(success);
       }
   });
 });

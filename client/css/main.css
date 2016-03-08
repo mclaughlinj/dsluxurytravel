@@ -14,7 +14,7 @@ body {
 
 a {
   text-decoration: none;
-  color: #fff;
+  color: #a27e00;
   cursor: pointer; }
 
 a:hover {
@@ -212,6 +212,9 @@ nav ul li {
   line-height: 1.0em;
   width: auto; }
 
+nav ul li a {
+  color: #fff; }
+
 .page__nav__open {
   background: #04294b;
   /* RGBa with 0.6 opacity */
@@ -388,7 +391,7 @@ article footer {
     padding-top: 180px; }
   .about__section__contentContainer, .home__section__contentContainer, .contact__section__contentContainer {
     padding: 10px 10px 20px 10px; }
-  .home__section__contentBorder, .about__section__contentBorder, .contact__section__contentBorder, .contact__section__contentBorder {
+  .home__section__contentBorder, .about__section__contentBorder, .contact__section__contentBorder {
     max-height: 600px;
     width: 640px;
     padding: 20px;
@@ -401,5 +404,7 @@ article footer {
     padding: 20px;
     margin-right: 80px;
     position: static; }
+  .contact__section__contentBorder {
+    width: 100%; }
   .home__section__footer, .about__section__footer, .contact__section__footer, .about__section__footer, .contact__section__footer {
     font-size: 1.0em; } }
