@@ -4,11 +4,13 @@ $( document ).ready(function() {
   viewWidth = $( window ).width() + 'px',
   viewHeightUnadjusted = $( window ).height() + 'px',
   viewHeightHalf = $( window ).height()/2 + 'px',
+  viewHeightThreeQ = $( window ).height()-390 + 'px',
+  position = $(window).scrollTop(),
   $root = $('html, body');
 
   // Fade in
-  $('.home__section__mainContent, .about__section__mainContent, .contact__section__mainContent').fadeIn(2000, function() {
-      $('.home__splash__continue, .about__splash__continue, .contact__splash__continue').fadeIn( 2000 );
+  $('.home__section__mainContent, .about__section__mainContent, .contact__section__mainContent, .services__section__mainContent, .prices__section__mainContent').fadeIn(2000, function() {
+      $('.home__splash__continue, .about__splash__continue, .contact__splash__continue, .services__splash__continue, .prices__splash__continue').fadeIn( 2000 );
     });
 
   // reveal nav on smaller screens
@@ -29,9 +31,13 @@ $( document ).ready(function() {
 
   // adjust content height to fit viewport
   $('.home__splash').css({'height': viewHeight});
-  $('.about__splash, .contact__splash').css({'height': viewHeightUnadjusted});
-  $('.home__gradient, .about__gradient, .contact__gradient').css({'height': viewHeightHalf});
-  $('.about__section__contentContainer, .home__section__contentContainer, .contact__section__contentContainer').css({'max-height': viewHeightHalf});
+  $('.about__splash, .contact__splash, .services__splash, .prices__splash').css({'height': viewHeightUnadjusted});
+  $('.home__gradient, .about__gradient, .contact__gradient, .services__gradient, .prices__gradient').css({'height': viewHeightHalf});
+  if ($( window ).height() >= 768) {
+    $('.about__section__contentContainer, .home__section__contentContainer, .contact__section__contentContainer, .services__section__contentContainer, .prices__section__contentContainer').css({'max-height': viewHeightThreeQ});
+  } else {
+    $('.about__section__contentContainer, .home__section__contentContainer, .contact__section__contentContainer, .services__section__contentContainer, .prices__section__contentContainer').css({'max-height': viewHeightHalf});
+  };
 
   // animate anchor scrolling
   $('a[href^="#"]').click(function(){
@@ -44,13 +50,18 @@ $( document ).ready(function() {
       return false;
   });
 
+  // show child details on contact form
+  $('input[name="kids"]').click(function() {
+    $('.contact__content__form__childrenNumber, .contact__content__form__childrenAges').toggle();
+  });
+
   // send contact form
-  $('.contact__content__form__submit').click(function(e){
+  $('.contact__content__form__submit, .contact__content__form__submit__two').click(function(e){
     e.preventDefault();
     var emailOptions = {
       email: $('input[name="email"]').val(),
       name: $('input[name="name"]').val(),
-      address: $('input[name="address"]').val(),
+      address: $('textarea[name="address"]').val(),
       phoneDay: $('input[name="phoneDay"]').val(),
       phoneEve: $('input[name="phoneEve"]').val(),
       pickUp: $('input[name="pickUp"]').val(),
@@ -59,7 +70,9 @@ $( document ).ready(function() {
       dropOff: $('input[name="dropOff"]').val(),
       number: $('input[name="number"]').val(),
       children: $('input[name="kids"]').val(),
-      special: $('input[name="special"]').val()
+      childrenNumber: $('input[name="kidsNumber"]').val(),
+      childrenAges: $('input[name="kidsAges"]').val(),
+      special: $('textarea[name="special"]').val()
     };
     post('/',emailOptions,function(response){
         console.log(emailOptions);
@@ -71,19 +84,61 @@ $( document ).ready(function() {
         }
     })
   });
-
+//
+// $(window).on('scroll', function(e) {
+//
+// 	var delta = e.originalEvent.deltaY;
+//
+// 	scrollPos = $(window).scrollTop();
+//
+//   if (scrollPos > position) {
+//     console.log('down');
+//     $root.animate({
+//       scrollTop: scrollPos + $( window ).height()
+//       }, 500);
+//   } else {
+//     console.log('up');
+//     $root.animate({
+//       scrollTop: scrollPos - $( window ).height()
+//       }, 500);
+//   }
+//   position = scrollPos;
+//
+// // 	if (delta > 0) {
+// // 	    console.log('down');
+// // 	    console.log(scrollPos + $( window ).height());
+// //       $root.animate({
+// //           scrollTop: scrollPos + $( window ).height()
+// //       }, 500);
+// // 	} else {
+// // 	    console.log('up');
+// // 	    console.log(scrollPos - $( window ).height());
+// //       $root.animate({
+// //           scrollTop: scrollPos - $( window ).height()
+// //       }, 500);
+// // 	};
+// });
 
 });
 
 $( window ).resize(function() {
   viewHeight = $( window ).height() + 20 + 'px',
   viewHeightUnadjusted = $( window ).height() + 'px',
-  viewHeightHalf = $( window ).height()/2 + 'px';
+  viewHeightHalf = $( window ).height()/2 + 'px',
+  viewHeightThreeQ = $( window ).height()-390 + 'px';
   $('.home__splash').css({'height': viewHeight});
-  $('.about__splash, .contact__splash').css({'height': viewHeightUnadjusted});
-  $('.home__gradient, .about__gradient, .contact__gradient').css({'height': viewHeightHalf});
-  $('.about__section__contentContainer, .home__section__contentContainer, .contact__section__contentContainer').css({'max-height': viewHeightHalf});
+  $('.about__splash, .contact__splash, .services__splash, .prices__splash').css({'height': viewHeightUnadjusted});
+  $('.home__gradient, .about__gradient, .contact__gradient, .services__gradient, .prices__gradient').css({'height': viewHeightHalf});
+  if ($( window ).height() >= 768) {
+    console.log('greater');
+    $('.about__section__contentContainer, .home__section__contentContainer, .contact__section__contentContainer, .services__section__contentContainer, .prices__section__contentContainer').css({'max-height': viewHeightThreeQ});
+  } else {
+    console.log('lesser');
+    $('.about__section__contentContainer, .home__section__contentContainer, .contact__section__contentContainer, .services__section__contentContainer, .prices__section__contentContainer').css({'max-height': viewHeightHalf});
+  };
 });
+
+
 
 function succeeded(output) {
   alert(output);

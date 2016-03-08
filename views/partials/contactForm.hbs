@@ -1,15 +1,29 @@
+<div class="contact__content__form__inner__div">
 <form method="post" action="/" name="dslContact" class="contact__content__form">
-  <p class="contact__content__form__name">Name: <input type="text" name="name" /></p>
-  <p class="contact__content__form__email">Email: <input type="email" name="email" /></p>
-  <p class="contact__content__form__address">Address: <input type="text" name="address" /></p>
-  <p class="contact__content__form__phoneDay">Phone (daytime or mobile): <input type="tel" name="phoneDay" /></p>
-  <p class="contact__content__form__phoneEve">Phone (evening): <input type="tel" name="phoneEve" /></p>
-  <p class="contact__content__form__pickUp">Pick-up location (inc. post code if known): <input type="text" name="pickUp" /></p>
-  <p class="contact__content__form__date">Date of first pick-up: <input type="date" name="date" /></p>
-  <p class="contact__content__form__time">Pick-up time: <input type="time" name="time" /></p>
-  <p class="contact__content__form__dropOff">Drop-off location (inc. post code if known): <input type="text" name="dropOff" /></p>
-  <p class="contact__content__form__number">Number of passengers: <input type="number" name="number" /></p>
-  <p class="contact__content__form__children">Are any of the passengers under the age of 18? <input type="text" name="kids" /></p>
-  <p class="contact__content__form__special">Special requirements: <input type="text" name="special" /></p>
-  <input type="submit" class="contact__content__form__submit" />
+  <div class="contact__content__form__left">
+    <p class="contact__content__form__name">Name: <input type="text" name="name" /></p>
+    <p class="contact__content__form__email">Email: <input type="email" name="email" /></p>
+    <p class="contact__content__form__phoneDay">Phone (daytime or mobile): <input type="tel" name="phoneDay" /></p>
+    <p class="contact__content__form__phoneEve">Phone (evening): <input type="tel" name="phoneEve" /></p>
+    <input type="submit" class="contact__content__form__submit" value="Send enquiry"/>
+  </div>
+  <div class="contact__content__form__right">
+    <p>Providing the following optional details will help me provide the perfect service to you when you decide to book.</p>
+    <div class="contact__content__form__right__left">
+      <p class="contact__content__form__address">Address:<br /><textarea rows="3" cols="50" name="address"></textarea></p>
+      <p class="contact__content__form__pickUp">Pick-up location (inc. post code if known):<br /><textarea rows="3" cols="50" name="pickUp"></textarea></p>
+      <p class="contact__content__form__date">Pick-up date: <input type="date" name="date" /></p>
+      <p class="contact__content__form__time">Pick-up time:&nbsp;<input type="time" name="time" /></p>
+      <p class="contact__content__form__dropOff">Drop-off location (inc. post code if known):<br /><textarea rows="3" cols="50" name="dropOff"></textarea></p>
+    </div>
+    <div class="contact__content__form__right__right">
+      <p class="contact__content__form__number">Number of passengers: <input type="number" name="number" /></p>
+      <p class="contact__content__form__children">Are any of the passengers under the age of 18? <input type="checkbox" name="kids" value="Yes" /></p>
+      <p class="contact__content__form__childrenNumber">Please specify number of passengers under 18: <input type="number" name="kidsNumber" /></p>
+      <p class="contact__content__form__childrenAges">Please specify ages of passengers under 18 for restraint requirements: <input type="text" name="kidsAges" /></p>
+    </div>
+    <p class="contact__content__form__special" style="clear: both;">Other details / Special requirements:<br /><textarea rows="4" cols="50" name="special"></textarea></p>
+    <input type="submit" class="contact__content__form__submit__two" value="Send enquiry"/>
+  </div>
 </form>
+</div>

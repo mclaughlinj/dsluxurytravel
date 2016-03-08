@@ -21,12 +21,19 @@ router.post('/', function(req, res){
       to: 'mclaughlinj@mac.com', // list of receivers
       subject: 'DS Luxury Travel Web Enquiry TEST', // Subject line
       text: 'Client name: ' + req.body.name
-       + '\nClient email:' + req.body.email
-       + '\nClient email:' + req.body.email
-       + '\r(R)Client email:' + req.body.email
-       + '\nClient email:' + req.body.email
-       + '\nClient email:' + req.body.email
-       + '\nClient email:' + req.body.email
+       + '\nClient email: ' + req.body.email
+       + '\nClient address: ' + req.body.address
+       + '\nClient phone (daytime): ' + req.body.phoneDay
+       + '\nClient phone (evening): ' + req.body.phoneEve
+       + '\n\nPick-up location: ' + req.body.pickUp
+       + '\nPick-up date: ' + req.body.date
+       + '\nPick-up time: ' + req.body.time
+       + '\n\nDrop-off location: ' + req.body.dropOff
+       + '\n\nTotal number od passengers: ' + req.body.number
+       + '\n\nIncludes children: ' + req.body.kids
+       + '\nNumber of children: ' + req.body.kidsNumber
+       + '\nAges of children: ' + req.body.kidsAges
+       + '\nnMessage: ' + req.body.special
   };
 
           console.log(mailOptions);

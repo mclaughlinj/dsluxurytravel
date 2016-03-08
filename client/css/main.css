@@ -14,7 +14,7 @@ body {
 
 a {
   text-decoration: none;
-  color: #a27e00;
+  color: #fff;
   cursor: pointer; }
 
 a:hover {
@@ -35,6 +35,27 @@ h2 {
 header {
   font-weight: bold;
   font-size: larger; }
+
+input {
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-size: 1.0em;
+  width: 100%; }
+
+input[type="submit"] {
+  background-color: #a27e00;
+  font-size: 1.5em;
+  color: #fff; }
+
+input[type="checkbox"] {
+  width: auto; }
+
+textarea {
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: top;
+  width: 100%; }
 
 .home__header {
   position: fixed;
@@ -73,14 +94,14 @@ header {
   right: 0;
   width: 100%; }
 
-.home__splash, .about__splash, .contact__splash {
+.home__splash, .about__splash, .contact__splash, .services__splash, .prices__splash {
   background-image: url("../img/home_bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top center;
   position: relative; }
   @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
-    .home__splash, .about__splash, .contact__splash {
+    .home__splash, .about__splash, .contact__splash, .services__splash, .prices__splash {
       background-image: url("../img/home_bg@2x.jpg"); } }
 
 .about__splash {
@@ -97,18 +118,30 @@ header {
     .contact__splash {
       background-image: url("../img/contact_bg@2x.jpg"); } }
 
-.home__gradient, .about__gradient, .contact__gradient {
-  background: -webkit-linear-gradient(#04294b, rgba(4, 41, 75, 0));
+.services__splash {
+  background-image: url("../img/services_bg.jpg"); }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .services__splash {
+      background-image: url("../img/services_bg@2x.jpg"); } }
+
+.prices__splash {
+  background-image: url("../img/prices_bg.jpg"); }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .prices__splash {
+      background-image: url("../img/prices_bg@2x.jpg"); } }
+
+.home__gradient, .about__gradient, .contact__gradient, .services__gradient, .prices__gradient {
+  background: -webkit-linear-gradient(rgba(4, 41, 75, 0.8), rgba(4, 41, 75, 0));
   /*Safari 5.1-6*/
-  background: -o-linear-gradient(#04294b, rgba(4, 41, 75, 0));
+  background: -o-linear-gradient(rgba(4, 41, 75, 0.8), rgba(4, 41, 75, 0));
   /*Opera 11.1-12*/
-  background: -moz-linear-gradient(#04294b, rgba(4, 41, 75, 0));
+  background: -moz-linear-gradient(rgba(4, 41, 75, 0.8), rgba(4, 41, 75, 0));
   /*Fx 3.6-15*/
-  background: linear-gradient(#04294b, rgba(4, 41, 75, 0));
+  background: linear-gradient(rgba(4, 41, 75, 0.8), rgba(4, 41, 75, 0));
   /*Standard*/
   height: 40%; }
 
-.home__section__header, .about__section__header, .contact__section__header {
+.home__section__header, .about__section__header, .contact__section__header, .services__section__header, .prices__section__header {
   font-size: 18px;
   font-weight: normal;
   font-size: larger;
@@ -116,7 +149,7 @@ header {
   color: #fff;
   text-shadow: 0 0 2px #191814; }
 
-.home__section__mainContent, .about__section__mainContent, .contact__section__mainContent {
+.home__section__mainContent, .about__section__mainContent, .contact__section__mainContent, .services__section__mainContent, .prices__section__mainContent {
   clear: both;
   display: none;
   color: #fff;
@@ -124,13 +157,13 @@ header {
   position: static;
   padding: 5px; }
 
-.home__section__mainContent p, .about__section__mainContent p, .contact__section__mainContent p, .about__section__mainContent p, .contact__section__mainContent p {
-  margin: 0.2em 0;
+.home__section__mainContent p, .about__section__mainContent p, .contact__section__mainContent p, .services__section__mainContent p, .prices__section__mainContent p, .about__section__mainContent p, .contact__section__mainContent p {
+  margin: 0.5em 0;
   line-height: 1.3em;
   font-size: 0.8em;
   text-shadow: 0 0 2px #191814; }
 
-.home__section__footer, .about__section__footer, .contact__section__footer {
+.home__section__footer, .about__section__footer, .contact__section__footer, .services__section__footer, .prices__section__footer {
   font-size: 0.5em;
   color: #fff;
   text-align: center;
@@ -140,7 +173,7 @@ header {
   width: 100%;
   display: none; }
 
-.home__splash__continue, .about__splash__continue, .contact__splash__continue {
+.home__splash__continue, .about__splash__continue, .contact__splash__continue, .services__splash__continue, .prices__splash__continue {
   display: none;
   color: #fff;
   text-align: center;
@@ -151,17 +184,38 @@ header {
   background-color: rgba(4, 41, 75, 0.3);
   padding: 10px 0 5px 0; }
 
-.home__section__contentBorder, .about__section__contentBorder, .contact__section__contentBorder {
+.home__section__contentBorder, .about__section__contentBorder, .contact__section__contentBorder, .services__section__contentBorder, .prices__section__contentBorder {
   padding: 5px;
   position: relative;
-  top: 100px; }
+  top: 100px;
+  background-color: rgba(4, 41, 75, 0.3); }
 
-.about__section__contentBorder, .contact__section__contentBorder {
-  top: 80px; }
+.about__section__contentContainer, .home__section__contentContainer, .contact__section__contentContainer, .services__section__contentContainer, .prices__section__contentContainer {
+  padding: 20px 10px 40px;
+  overflow: scroll;
+  max-height: 75%;
+  background-color: rgba(4, 41, 75, 0.3); }
 
-.about__section__contentContainer, .home__section__contentContainer, .contact__section__contentContainer {
-  padding: 5px;
-  overflow: scroll; }
+.contact__content__form__inner__div {
+  padding: 20px; }
+
+.contact__content__form__inner__div:after {
+  content: " ";
+  display: block;
+  clear: both; }
+
+.contact__content__form__childrenNumber, .contact__content__form__childrenAges {
+  display: none; }
+
+.about__section__contentContainer:after, .home__section__contentContainer:after, .contact__section__contentContainer:after, .services__section__contentContainer:after, .prices__section__contentContainer:after {
+  content: " ";
+  position: absolute;
+  height: 50px;
+  bottom: 5px;
+  left: 5px;
+  box-sizing: border-box;
+  padding: 0 50%;
+  background: -webkit-linear-gradient(rgba(4, 41, 75, 0), #04294b); }
 
 .arrow-up {
   width: 0;
@@ -188,7 +242,8 @@ footer {
   font-weight: bold; }
 
 .page__footer__a {
-  font-weight: normal; }
+  font-weight: normal;
+  color: #fff; }
 
 nav {
   width: 100%;
@@ -321,7 +376,7 @@ article footer {
     display: none; }
   .display {
     left: 0px; }
-  .home__section__footer, .about__section__footer, .contact__section__footer {
+  .home__section__footer, .about__section__footer, .contact__section__footer, .services__section__footer, .prices__section__footer {
     display: block;
     font-size: 0.7em; }
   footer {
@@ -330,8 +385,23 @@ article footer {
 @media only screen and (min-width: 768px) {
   h2 {
     font-size: 1.2em; }
-  .home__section__mainContent p, .about__section__mainContent p, .contact__section__mainContent p, .about__section__mainContent p, .contact__section__mainContent p {
-    font-size: 1.0em; } }
+  .home__section__mainContent p, .about__section__mainContent p, .contact__section__mainContent p, .services__section__mainContent p, .prices__section__mainContent p, .about__section__mainContent p, .contact__section__mainContent p, .services__section__mainContent p, .prices__section__mainContent p {
+    font-size: 1.0em; }
+  .contact__content__form__left {
+    float: left;
+    width: 45%; }
+  .contact__content__form__right {
+    font-size: 0.8em;
+    float: right;
+    width: 48%; }
+  .contact__content__form__right__left {
+    float: left;
+    width: 48%; }
+  .contact__content__form__right__right {
+    float: right;
+    width: 45%; }
+  .contact__content__form__submit__two {
+    display: none; } }
 
 @media only screen and (min-width: 1025px) {
   body {
@@ -378,33 +448,39 @@ article footer {
     visibility: hidden; }
   nav ul {
     width: 100%; }
-  .home__splash, .about__splash, .contact__splash, .about__splash, .contact__splash {
+  .home__splash, .about__splash, .contact__splash, .services__splash, .prices__splash, .about__splash, .contact__splash, .services__splash, .prices__splash {
     background-size: cover;
     background-position: bottom right; }
   .contact__splash {
     background-position: center right; }
-  .home__section__mainContent, .about__section__mainContent, .contact__section__mainContent, .about__section__mainContent, .contact__section__mainContent {
+  .services__splash {
+    background-position: top right; }
+  .home__section__mainContent, .about__section__mainContent, .contact__section__mainContent, .services__section__mainContent, .prices__section__mainContent, .about__section__mainContent, .contact__section__mainContent, .services__section__mainContent, .prices__section__mainContent {
     font-size: 1.5em;
     padding-top: 200px;
     position: static; }
-  .about__section__mainContent, .contact__section__mainContent {
+  .about__section__mainContent, .contact__section__mainContent, .services__section__mainContent, .prices__section__mainContent {
     padding-top: 180px; }
-  .about__section__contentContainer, .home__section__contentContainer, .contact__section__contentContainer {
+  .about__section__contentContainer, .home__section__contentContainer, .contact__section__contentContainer, .services__section__contentContainer, .prices__section__contentContainer {
     padding: 10px 10px 20px 10px; }
-  .home__section__contentBorder, .about__section__contentBorder, .contact__section__contentBorder {
-    max-height: 600px;
+  .home__section__contentBorder, .about__section__contentBorder, .contact__section__contentBorder, .services__section__contentBorder, .prices__section__contentBorder, .services__section__contentBorder {
     width: 640px;
     padding: 20px;
     margin-left: 100px;
-    position: static; }
-  .about__section__contentBorder {
-    max-height: 600px;
+    top: 0; }
+  .about__section__contentBorder, .prices__section__contentBorder {
     float: right;
     width: 640px;
     padding: 20px;
     margin-right: 80px;
-    position: static; }
+    top: 0; }
   .contact__section__contentBorder {
-    width: 100%; }
-  .home__section__footer, .about__section__footer, .contact__section__footer, .about__section__footer, .contact__section__footer {
+    width: 80%; }
+  .about__section__contentContainer:after, .home__section__contentContainer:after, .contact__section__contentContainer:after, .services__section__contentContainer:after, .prices__section__contentContainer:after {
+    bottom: 20px;
+    left: 20px;
+    height: 50px; }
+  .contact__content__form {
+    font-size: 0.8em; }
+  .home__section__footer, .about__section__footer, .contact__section__footer, .services__section__footer, .prices__section__footer, .about__section__footer, .contact__section__footer, .services__section__footer, .prices__section__footer {
     font-size: 1.0em; } }

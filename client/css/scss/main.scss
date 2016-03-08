@@ -26,7 +26,7 @@ body {
 
 a {
   text-decoration: none;
-  color: $goldColor;
+  color: #fff;
   cursor: pointer;
 }
 
@@ -52,6 +52,31 @@ h2 {
 header {
   font-weight: bold;
   font-size: larger;
+}
+
+input {
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-size: 1.0em;
+  width: 100%;
+}
+
+input[type="submit"] {
+  background-color: $goldColor;
+  font-size: 1.5em;
+  color: #fff;
+}
+
+input[type="checkbox"] {
+  width: auto;
+}
+
+textarea {
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: top;
+  width: 100%;
 }
 
 .home__header {
@@ -115,11 +140,21 @@ header {
   background-position: top left;
 }
 
+.services__splash {
+  @extend .home__splash;
+  @include at2xBg('../img/services_bg', jpg);
+}
+
+.prices__splash {
+  @extend .home__splash;
+  @include at2xBg('../img/prices_bg', jpg);
+}
+
 .home__gradient {
-  background: -webkit-linear-gradient(rgba(4,41,75,1),rgba(4,41,75,0)); /*Safari 5.1-6*/
-  background: -o-linear-gradient(rgba(4,41,75,1),rgba(4,41,75,0)); /*Opera 11.1-12*/
-  background: -moz-linear-gradient(rgba(4,41,75,1),rgba(4,41,75,0)); /*Fx 3.6-15*/
-  background: linear-gradient(rgba(4,41,75,1), rgba(4,41,75,0)); /*Standard*/
+  background: -webkit-linear-gradient(rgba(4,41,75,0.8),rgba(4,41,75,0)); /*Safari 5.1-6*/
+  background: -o-linear-gradient(rgba(4,41,75,0.8),rgba(4,41,75,0)); /*Opera 11.1-12*/
+  background: -moz-linear-gradient(rgba(4,41,75,0.8),rgba(4,41,75,0)); /*Fx 3.6-15*/
+  background: linear-gradient(rgba(4,41,75,0.8), rgba(4,41,75,0)); /*Standard*/
   height: 40%;
 }
 
@@ -128,6 +163,12 @@ header {
 }
 
 .contact__gradient {
+  @extend .home__gradient;
+}
+.services__gradient {
+  @extend .home__gradient;
+}
+.prices__gradient {
   @extend .home__gradient;
 }
 
@@ -151,7 +192,7 @@ header {
 }
 
 .home__section__mainContent p, .about__section__mainContent p, .contact__section__mainContent p {
-  margin: 0.2em 0;
+  margin: 0.5em 0;
   line-height: 1.3em;
   font-size: 0.8em;
   text-shadow: 0 0 2px $blackColor;
@@ -180,11 +221,11 @@ header {
   padding: 10px 0 5px 0;
 }
 
-.about__section__header, .contact__section__header {
+.about__section__header, .contact__section__header, .services__section__header, .prices__section__header {
   @extend .home__section__header;
 }
 
-.about__section__mainContent, .contact__section__mainContent {
+.about__section__mainContent, .contact__section__mainContent, .services__section__mainContent, .prices__section__mainContent {
   @extend .home__section__mainContent;
 }
 
@@ -192,23 +233,50 @@ header {
   padding: 5px;
   position: relative;
   top: 100px;
+  background-color: rgba(4, 41, 75, 0.3);
 }
 
-.about__section__contentBorder, .contact__section__contentBorder {
+.about__section__contentBorder, .contact__section__contentBorder, .services__section__contentBorder, .prices__section__contentBorder {
   @extend .home__section__contentBorder;
-  top: 80px;
 }
 
-.about__section__contentContainer, .home__section__contentContainer, .contact__section__contentContainer {
-  padding: 5px;
+.about__section__contentContainer, .home__section__contentContainer, .contact__section__contentContainer, .services__section__contentContainer, .prices__section__contentContainer {
+  padding: 20px 10px 40px;
   overflow: scroll;
+  max-height: 75%;
+  background-color: rgba(4, 41, 75, 0.3);
 }
 
-.about__section__footer, .contact__section__footer {
+.contact__content__form__inner__div {
+  padding: 20px;
+}
+
+.contact__content__form__inner__div:after {
+    content: " ";
+    display: block;
+    clear: both;
+}
+
+.contact__content__form__childrenNumber, .contact__content__form__childrenAges {
+  display: none;
+}
+
+.about__section__contentContainer:after, .home__section__contentContainer:after, .contact__section__contentContainer:after, .services__section__contentContainer:after, .prices__section__contentContainer:after {
+  content: " ";
+  position: absolute;
+  height: 50px;
+  bottom: 5px;
+  left: 5px;
+  box-sizing: border-box;
+  padding: 0 50%;
+  background: -webkit-linear-gradient( rgba(4, 41, 75, 0), rgba(4, 41, 75, 1));
+}
+
+.about__section__footer, .contact__section__footer, .services__section__footer, .prices__section__footer {
   @extend .home__section__footer;
 }
 
-.about__splash__continue, .contact__splash__continue {
+.about__splash__continue, .contact__splash__continue, .services__splash__continue, .prices__splash__continue {
   @extend .home__splash__continue;
 }
 
@@ -242,6 +310,7 @@ footer {
 
 .page__footer__a {
   font-weight: normal;
+  color: #fff;
 }
 
 nav {
@@ -421,8 +490,33 @@ article footer {
     font-size: 1.2em;
   }
 
-  .home__section__mainContent p, .about__section__mainContent p, .contact__section__mainContent p {
+  .home__section__mainContent p, .about__section__mainContent p, .contact__section__mainContent p, .services__section__mainContent p, .prices__section__mainContent p {
     font-size: 1.0em;
+  }
+
+  .contact__content__form__left {
+    float: left;
+    width: 45%;
+  }
+
+  .contact__content__form__right {
+    font-size: 0.8em;
+    float: right;
+    width: 48%;
+  }
+
+  .contact__content__form__right__left {
+    float: left;
+    width: 48%;
+  }
+
+  .contact__content__form__right__right {
+    float: right;
+    width: 45%;
+  }
+
+  .contact__content__form__submit__two {
+    display: none;
   }
 
 }
@@ -497,7 +591,7 @@ article footer {
     width: 100%;
   }
 
-  .home__splash, .about__splash, .contact__splash {
+  .home__splash, .about__splash, .contact__splash, .services__splash, .prices__splash {
     background-size: cover;
     background-position: bottom right;
   }
@@ -506,42 +600,54 @@ article footer {
     background-position: center right;
   }
 
-  .home__section__mainContent, .about__section__mainContent, .contact__section__mainContent {
+  .services__splash {
+    background-position: top right;
+  }
+
+  .home__section__mainContent, .about__section__mainContent, .contact__section__mainContent, .services__section__mainContent, .prices__section__mainContent {
     font-size: 1.5em;
     padding-top: 200px;
     position: static;
   }
 
-  .about__section__mainContent, .contact__section__mainContent {
+  .about__section__mainContent, .contact__section__mainContent, .services__section__mainContent, .prices__section__mainContent {
     padding-top: 180px;
   }
 
-  .about__section__contentContainer, .home__section__contentContainer, .contact__section__contentContainer, {
+  .about__section__contentContainer, .home__section__contentContainer, .contact__section__contentContainer, .services__section__contentContainer, .prices__section__contentContainer {
     padding: 10px 10px 20px 10px;
   }
 
-  .home__section__contentBorder {
-    max-height: 600px;
+  .home__section__contentBorder, .services__section__contentBorder {
     width: 640px;
     padding: 20px;
     margin-left: 100px;
-    position: static
+    top: 0;
   }
 
-  .about__section__contentBorder {
-    max-height: 600px;
+  .about__section__contentBorder, .prices__section__contentBorder {
     float: right;
     width: 640px;
     padding: 20px;
     margin-right: 80px;
-    position: static;
+    top: 0;
   }
 
   .contact__section__contentBorder {
-    width: 100%;
+    width: 80%;
   }
 
-  .home__section__footer, .about__section__footer, .contact__section__footer {
+  .about__section__contentContainer:after, .home__section__contentContainer:after, .contact__section__contentContainer:after, .services__section__contentContainer:after, .prices__section__contentContainer:after {
+    bottom: 20px;
+    left: 20px;
+    height: 50px;
+  }
+
+  .contact__content__form {
+    font-size: 0.8em;
+  }
+
+  .home__section__footer, .about__section__footer, .contact__section__footer, .services__section__footer, .prices__section__footer {
     font-size: 1.0em;
   }
 
