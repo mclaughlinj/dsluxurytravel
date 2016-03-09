@@ -57,6 +57,7 @@ $( document ).ready(function() {
 
   // send contact form
   $('.contact__content__form__submit, .contact__content__form__submit__two').click(function(e){
+    $('.contact__content__form__submit').prop('disabled', true);
     e.preventDefault();
     var emailOptions = {
       email: $('input[name="email"]').val(),

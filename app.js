@@ -9,10 +9,6 @@ var nodemailer = require('nodemailer');
 var sendmailTransport = require('nodemailer-sendmail-transport');
 
 var routes = require('./routes/index');
-var content = require('./routes/content');
-var contact = require('./routes/contact');
-
-var jquery = require('./routes/jquery');
 
 var app = express();
 
@@ -64,18 +60,14 @@ function exposeTemplates(req, res, next) {
     .catch(next);
 }
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'client')));
+app.use(favicon(path.join(__dirname, 'client', 'favicon.ico')));
 
 app.use('/', routes);
-app.use('/contact', contact);
-app.use('/content', content);
-app.use('/jquery', jquery);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
