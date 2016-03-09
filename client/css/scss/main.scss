@@ -8,6 +8,7 @@ $blackColor: #191814;
 $goldColor: #a27e00;
 
 html {
+
   font-family: $font-stack;
 }
 
@@ -81,6 +82,10 @@ textarea {
   box-sizing: border-box;
   vertical-align: top;
   width: 100%;
+}
+
+.main {
+  position: relative;
 }
 
 .home__header {
@@ -180,7 +185,7 @@ textarea {
 .home__section__header {
   font-size: 18px;
   font-weight: normal;
-  font-size: larger;
+  font-size: 2.0em;
   margin: 0 auto;
   color: #fff;
   text-shadow: 0 0 2px $blackColor;
@@ -190,7 +195,7 @@ textarea {
   clear: both;
   display: none;
   color: #fff;
-  font-size: 1.0em;
+  font-size: 0.8em;
   position: static;
   padding: 5px;
 }
@@ -198,7 +203,7 @@ textarea {
 .home__section__mainContent p, .about__section__mainContent p, .contact__section__mainContent p {
   margin: 0.5em 0;
   line-height: 1.3em;
-  font-size: 0.8em;
+  font-size: 1.0em;
   text-shadow: 0 0 2px $blackColor;
 }
 
@@ -338,7 +343,7 @@ nav ul li {
   display: inline-block;
   margin: 4px 0px 6px 10px;
   text-align: left;
-  font-size: 1.2em;
+  font-size: 1.0em;
   line-height: 1.0em;
   width: auto;
 }
@@ -413,6 +418,31 @@ article footer {
 
 .tapable {
   cursor: pointer;
+}
+
+.modPsy__credit__image {
+  padding-left: 5px;
+  width: 10%;
+  height: 10%;
+  vertical-align: middle;
+}
+
+.modPsy__credit__link {
+  margin: 0 auto;
+  text-align: right;
+  float: right;
+  padding: 5px;
+  color: #fff;
+  font-size: 0.6em;
+  text-shadow: 0 0 1px $blackColor;
+}
+
+.modPsy__credit__link span {
+  display: block;
+}
+
+.modPsy__credit__link a {
+  color: $goldColor;
 }
 
 @media only screen and (min-width: 569px) {
@@ -594,6 +624,10 @@ article footer {
 
   nav ul {
     width: 100%;
+  }
+
+  .home__section__header {
+    font-size: 1.2em;
   }
 
   .home__splash, .about__splash, .contact__splash, .services__splash, .prices__splash {

@@ -60,6 +60,9 @@ textarea {
   vertical-align: top;
   width: 100%; }
 
+.main {
+  position: relative; }
+
 .home__header {
   position: fixed;
   z-index: 1000; }
@@ -147,7 +150,7 @@ textarea {
 .home__section__header, .about__section__header, .contact__section__header, .services__section__header, .prices__section__header {
   font-size: 18px;
   font-weight: normal;
-  font-size: larger;
+  font-size: 2.0em;
   margin: 0 auto;
   color: #fff;
   text-shadow: 0 0 2px #191814; }
@@ -156,14 +159,14 @@ textarea {
   clear: both;
   display: none;
   color: #fff;
-  font-size: 1.0em;
+  font-size: 0.8em;
   position: static;
   padding: 5px; }
 
 .home__section__mainContent p, .about__section__mainContent p, .contact__section__mainContent p, .services__section__mainContent p, .prices__section__mainContent p, .about__section__mainContent p, .contact__section__mainContent p {
   margin: 0.5em 0;
   line-height: 1.3em;
-  font-size: 0.8em;
+  font-size: 1.0em;
   text-shadow: 0 0 2px #191814; }
 
 .home__section__footer, .about__section__footer, .contact__section__footer, .services__section__footer, .prices__section__footer {
@@ -269,7 +272,7 @@ nav ul li {
   display: inline-block;
   margin: 4px 0px 6px 10px;
   text-align: left;
-  font-size: 1.2em;
+  font-size: 1.0em;
   line-height: 1.0em;
   width: auto; }
 
@@ -341,6 +344,27 @@ article footer {
 
 .tapable {
   cursor: pointer; }
+
+.modPsy__credit__image {
+  padding-left: 5px;
+  width: 10%;
+  height: 10%;
+  vertical-align: middle; }
+
+.modPsy__credit__link {
+  margin: 0 auto;
+  text-align: right;
+  float: right;
+  padding: 5px;
+  color: #fff;
+  font-size: 0.6em;
+  text-shadow: 0 0 1px #191814; }
+
+.modPsy__credit__link span {
+  display: block; }
+
+.modPsy__credit__link a {
+  color: #a27e00; }
 
 @media only screen and (min-width: 569px) {
   body {
@@ -454,6 +478,8 @@ article footer {
     visibility: hidden; }
   nav ul {
     width: 100%; }
+  .home__section__header, .about__section__header, .contact__section__header, .services__section__header, .prices__section__header {
+    font-size: 1.2em; }
   .home__splash, .about__splash, .contact__splash, .services__splash, .prices__splash, .about__splash, .contact__splash, .services__splash, .prices__splash {
     background-size: cover;
     background-position: bottom right; }
