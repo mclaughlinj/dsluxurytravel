@@ -31,7 +31,7 @@ router.post('/', function(req, res){
   // setup e-mail data with unicode symbols
   var mailOptions = {
       from: 'dslt.mailer@gmail.com', // sender address
-      to: 'mclaughlinj73@gmail.com', // list of receivers
+      to: 'dsluxurytravel@gmail.com', // list of receivers
       subject: 'DS Luxury Travel Web Enquiry', // Subject line
       text: 'Client name: ' + req.body.name
        + '\nClient email: ' + req.body.email
