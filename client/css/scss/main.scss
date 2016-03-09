@@ -42,6 +42,10 @@ a:active {
   text-shadow: 1px 1px 4px #b9dcdd;
 }
 
+strong {
+  font-weight: 400;
+}
+
 h2 {
   font-weight: 400;
   font-size: 0.8em;
@@ -232,12 +236,13 @@ textarea {
 .home__section__contentBorder {
   padding: 5px;
   position: relative;
-  top: 100px;
+  top: 120px;
   background-color: rgba(4, 41, 75, 0.3);
 }
 
 .about__section__contentBorder, .contact__section__contentBorder, .services__section__contentBorder, .prices__section__contentBorder {
   @extend .home__section__contentBorder;
+  top: 100px;
 }
 
 .about__section__contentContainer, .home__section__contentContainer, .contact__section__contentContainer, .services__section__contentContainer, .prices__section__contentContainer {
