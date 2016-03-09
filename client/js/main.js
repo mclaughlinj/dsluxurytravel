@@ -64,14 +64,14 @@ $( document ).ready(function() {
       address: $('textarea[name="address"]').val(),
       phoneDay: $('input[name="phoneDay"]').val(),
       phoneEve: $('input[name="phoneEve"]').val(),
-      pickUp: $('input[name="pickUp"]').val(),
+      pickUp: $('textarea[name="pickUp"]').val(),
       date: $('input[name="date"]').val(),
       time: $('input[name="time"]').val(),
-      dropOff: $('input[name="dropOff"]').val(),
+      dropOff: $('textarea[name="dropOff"]').val(),
       number: $('input[name="number"]').val(),
-      children: $('input[name="kids"]').val(),
-      childrenNumber: $('input[name="kidsNumber"]').val(),
-      childrenAges: $('input[name="kidsAges"]').val(),
+      kids: $('input[name="kids"]').val(),
+      kidsNumber: $('input[name="kidsNumber"]').val(),
+      kidsAges: $('input[name="kidsAges"]').val(),
       special: $('textarea[name="special"]').val()
     };
     post('/',emailOptions,function(response){
