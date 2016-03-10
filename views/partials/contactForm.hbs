@@ -1,28 +1,29 @@
 <div class="contact__content__form__inner__div">
-<form method="post" action="/" name="dslContact" class="contact__content__form">
+<span class="contact__content__form__inner__required__span">Fields marked <span class="contact__content__form__required">r</span> are required to allow me to contact you.</span>
+<form method="post" action="/" id="dslContact" class="contact__content__form">
   <div class="contact__content__form__left">
-    <p class="contact__content__form__name">Name: <input type="text" name="name" /></p>
-    <p class="contact__content__form__email">Email: <input type="email" name="email" /></p>
-    <p class="contact__content__form__phoneDay">Phone (daytime or mobile): <input type="tel" name="phoneDay" /></p>
-    <p class="contact__content__form__phoneEve">Phone (evening): <input type="tel" name="phoneEve" /></p>
+    <p class="contact__content__form__name"><label for="name" form="dslContact">Name:<span class="contact__content__form__required">r</span> </label><input type="text" name="name" id="name" required /></p>
+    <p class="contact__content__form__email"><label for="email" form="dslContact">Email:<span class="contact__content__form__required">r</span> </label><input type="email" name="email" id="email" required /></p>
+    <p class="contact__content__form__phoneDay"><label for="phoneDay" form="dslContact">Phone (daytime or mobile):<span class="contact__content__form__required">r</span> </label><input type="tel" name="phoneDay" id="phoneDay" required /></p>
+    <p class="contact__content__form__phoneEve"><label for="phoneEve" form="dslContact">Phone (evening): </label><input type="tel" name="phoneEve" id="phoneEve" /></p>
     <input type="submit" class="contact__content__form__submit" value="Send enquiry"/>
   </div>
   <div class="contact__content__form__right">
     <p>Providing the following optional details will help me provide the perfect service to you when you decide to book.</p>
     <div class="contact__content__form__right__left">
-      <p class="contact__content__form__address">Address:<br /><textarea rows="3" cols="50" name="address"></textarea></p>
-      <p class="contact__content__form__pickUp">Pick-up location (inc. post code if known):<br /><textarea rows="3" cols="50" name="pickUp"></textarea></p>
-      <p class="contact__content__form__date">Pick-up date: <input type="date" name="date" /></p>
-      <p class="contact__content__form__time">Pick-up time:&nbsp;<input type="time" name="time" /></p>
-      <p class="contact__content__form__dropOff">Drop-off location (inc. post code if known):<br /><textarea rows="3" cols="50" name="dropOff"></textarea></p>
+      <p class="contact__content__form__address"><label for="address" form="dslContact">Address:<br /></label><textarea rows="3" cols="50" name="address" id="address"></textarea></p>
+      <p class="contact__content__form__pickUp"><label for="pickUp" form="dslContact">Pick-up location (inc. post code if known):<br /></label><textarea rows="3" cols="50" name="pickUp" id="pickUp"></textarea></p>
+      <p class="contact__content__form__date"><label for="date" form="dslContact">Pick-up date: </label><input type="date" name="date" id="date" /></p>
+      <p class="contact__content__form__time"><label for="time" form="dslContact">Pick-up time:&nbsp;</label><input type="time" name="time" id="time" /></p>
+      <p class="contact__content__form__dropOff"><label for="dropOff" form="dslContact">Drop-off location (inc. post code if known):<br /></label><textarea rows="3" cols="50" name="dropOff" id="dropOff"></textarea></p>
     </div>
     <div class="contact__content__form__right__right">
-      <p class="contact__content__form__number">Number of passengers: <input type="number" name="number" /></p>
-      <p class="contact__content__form__children">Are any of the passengers under the age of 18? <input type="checkbox" name="kids" value="Yes" /></p>
-      <p class="contact__content__form__childrenNumber">Please specify number of passengers under 18: <input type="number" name="kidsNumber" /></p>
-      <p class="contact__content__form__childrenAges">Please specify ages of passengers under 18 for restraint requirements: <input type="text" name="kidsAges" /></p>
+      <p class="contact__content__form__number"><label for="number" form="dslContact">Number of passengers: </label><input type="number" name="number" id="number" /></p>
+      <p class="contact__content__form__children"><label for="kids" form="dslContact">Are any of the passengers under the age of 18? </label><input type="checkbox" name="kids" id="kids" value="Yes" /></p>
+      <p class="contact__content__form__childrenNumber"><label for="kidsNumber" form="dslContact">Please specify number of passengers under 18:<span class="contact__content__form__required">r</span> </label><input type="number" name="kidsNumber" id="kidsNumber" /></p>
+      <p class="contact__content__form__childrenAges"><label for="kidsAges" form="dslContact">Please specify ages of passengers under 18 for restraint requirements:<span class="contact__content__form__required">r</span> </label><input type="text" name="kidsAges" id="kidsAges" /></p>
     </div>
-    <p class="contact__content__form__special" style="clear: both;">Other details / Special requirements:<br /><textarea rows="4" cols="50" name="special"></textarea></p>
+    <p class="contact__content__form__special" style="clear: both;"><label for="special" form="dslContact">Other details / Special requirements:<br /></label><textarea rows="4" cols="50" name="special" id="special"></textarea></p>
     <input type="submit" class="contact__content__form__submit__two" value="Send enquiry"/>
   </div>
 </form>

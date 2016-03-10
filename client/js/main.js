@@ -52,38 +52,55 @@ $( document ).ready(function() {
 
   // show child details on contact form
   $('input[name="kids"]').click(function() {
-    $('.contact__content__form__childrenNumber, .contact__content__form__childrenAges').toggle();
+    if($(this).is(':checked')) {
+      $('.contact__content__form__childrenNumber, .contact__content__form__childrenAges').toggle().children('input').prop('required', true);
+    } else {
+      $('.contact__content__form__childrenNumber, .contact__content__form__childrenAges').toggle().children('input').prop('required', false);
+    }
   });
 
   // send contact form
   $('.contact__content__form__submit, .contact__content__form__submit__two').click(function(e){
-    $('.contact__content__form__submit').prop('disabled', true);
     e.preventDefault();
-    var emailOptions = {
-      email: $('input[name="email"]').val(),
-      name: $('input[name="name"]').val(),
-      address: $('textarea[name="address"]').val(),
-      phoneDay: $('input[name="phoneDay"]').val(),
-      phoneEve: $('input[name="phoneEve"]').val(),
-      pickUp: $('textarea[name="pickUp"]').val(),
-      date: $('input[name="date"]').val(),
-      time: $('input[name="time"]').val(),
-      dropOff: $('textarea[name="dropOff"]').val(),
-      number: $('input[name="number"]').val(),
-      kids: $('input[name="kids"]').val(),
-      kidsNumber: $('input[name="kidsNumber"]').val(),
-      kidsAges: $('input[name="kidsAges"]').val(),
-      special: $('textarea[name="special"]').val()
-    };
-    post('/',emailOptions,function(response){
-        console.log(emailOptions);
-        if(response.success)
-        {
-            $('.contact__content__form__div').empty().html('Thank you for your enquiry.  I\'ll be in touch shortly.');
-        } else {
-            $('.contact__content__form__div').empty().html('There was a problem !');
-        }
-    })
+    var requiredFieldCount = $('input:required').length;
+    var requiredFieldsFilled = 0;
+    $('input:required').each(function() {
+      if ($(this).val()) {
+        requiredFieldsFilled++
+      }
+    });
+    if (requiredFieldsFilled !== requiredFieldCount) {
+      alert('Please fill in the form');
+      $('input:required').css('background-color','yellow');
+
+    } else {
+      $('.contact__content__form__submit').prop('disabled', true);
+      var emailOptions = {
+        email: $('input[name="email"]').val(),
+        name: $('input[name="name"]').val(),
+        address: $('textarea[name="address"]').val(),
+        phoneDay: $('input[name="phoneDay"]').val(),
+        phoneEve: $('input[name="phoneEve"]').val(),
+        pickUp: $('textarea[name="pickUp"]').val(),
+        date: $('input[name="date"]').val(),
+        time: $('input[name="time"]').val(),
+        dropOff: $('textarea[name="dropOff"]').val(),
+        number: $('input[name="number"]').val(),
+        kids: $('input[name="kids"]').val(),
+        kidsNumber: $('input[name="kidsNumber"]').val(),
+        kidsAges: $('input[name="kidsAges"]').val(),
+        special: $('textarea[name="special"]').val()
+      };
+      post('/',emailOptions,function(response){
+          console.log(emailOptions);
+          if(response.success)
+          {
+              $('.contact__content__form__div').empty().html('Thank you for your enquiry.  I\'ll be in touch shortly.');
+          } else {
+              $('.contact__content__form__div').empty().html('There was a problem !');
+          }
+      })
+    }
   });
 //
 // $(window).on('scroll', function(e) {
@@ -131,10 +148,8 @@ $( window ).resize(function() {
   $('.about__splash, .contact__splash, .services__splash, .prices__splash').css({'height': viewHeightUnadjusted});
   $('.home__gradient, .about__gradient, .contact__gradient, .services__gradient, .prices__gradient').css({'height': viewHeightHalf});
   if ($( window ).height() >= 768) {
-    console.log('greater');
     $('.about__section__contentContainer, .home__section__contentContainer, .contact__section__contentContainer, .services__section__contentContainer, .prices__section__contentContainer').css({'max-height': viewHeightThreeQ});
   } else {
-    console.log('lesser');
     $('.about__section__contentContainer, .home__section__contentContainer, .contact__section__contentContainer, .services__section__contentContainer, .prices__section__contentContainer').css({'max-height': viewHeightHalf});
   };
 });

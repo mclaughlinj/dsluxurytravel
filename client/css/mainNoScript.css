@@ -49,8 +49,7 @@ input {
 input[type="submit"] {
   background-color: #a27e00;
   font-size: 1.5em;
-  color: #fff;
-  cursor: pointer; }
+  color: #fff; }
 
 input[type="checkbox"] {
   width: auto; }
@@ -94,13 +93,6 @@ textarea {
   left: 110px;
   bottom: 35px; }
 
-.page__header__span {
-  display: block;
-  position: absolute;
-  top: -100px;
-  left: 30px;
-  color: #191814; }
-
 .page__aside {
   z-index: 900;
   position: fixed;
@@ -113,7 +105,8 @@ textarea {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top center;
-  position: relative; }
+  position: relative;
+  height: 1024px; }
   @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
     .home__splash, .about__splash, .contact__splash, .services__splash, .prices__splash {
       background-image: url("../img/home_bg@2x.jpg"); } }
@@ -165,11 +158,11 @@ textarea {
 
 .home__section__mainContent, .about__section__mainContent, .contact__section__mainContent, .services__section__mainContent, .prices__section__mainContent {
   clear: both;
-  display: none;
   color: #fff;
   font-size: 0.8em;
   position: static;
-  padding: 5px; }
+  padding: 5px;
+  display: block; }
 
 .home__section__mainContent p, .about__section__mainContent p, .contact__section__mainContent p, .services__section__mainContent p, .prices__section__mainContent p, .about__section__mainContent p, .contact__section__mainContent p {
   margin: 0.5em 0;
@@ -184,11 +177,9 @@ textarea {
   position: absolute;
   bottom: 80px;
   margin: 0 auto;
-  width: 100%;
-  display: none; }
+  width: 100%; }
 
 .home__splash__continue, .about__splash__continue, .contact__splash__continue, .services__splash__continue, .prices__splash__continue {
-  display: none;
   color: #fff;
   text-align: center;
   position: absolute;
@@ -196,13 +187,16 @@ textarea {
   margin: 0 auto;
   width: 100%;
   background-color: rgba(4, 41, 75, 0.3);
-  padding: 10px 0 5px 0; }
+  padding: 10px 0 5px 0;
+  display: block; }
 
 .home__section__contentBorder, .about__section__contentBorder, .contact__section__contentBorder, .services__section__contentBorder, .prices__section__contentBorder {
   padding: 5px;
   position: relative;
   top: 120px;
-  background-color: rgba(4, 41, 75, 0.3); }
+  background-color: rgba(4, 41, 75, 0.3);
+  max-height: 620px;
+  overflow: hidden; }
 
 .about__section__contentBorder, .contact__section__contentBorder, .services__section__contentBorder, .prices__section__contentBorder {
   top: 100px; }
@@ -211,7 +205,8 @@ textarea {
   padding: 20px 10px 40px;
   overflow: scroll;
   max-height: 75%;
-  background-color: rgba(4, 41, 75, 0.3); }
+  background-color: rgba(4, 41, 75, 0.3);
+  max-height: 580px; }
 
 .contact__content__form__inner__div {
   padding: 20px; }
@@ -220,26 +215,6 @@ textarea {
   content: " ";
   display: block;
   clear: both; }
-
-.contact__content__form__inner__required__span {
-  font-size: 0.6em;
-  line-height: 0.6em;
-  vertical-align: 0.7em; }
-
-.contact__content__form__required {
-  display: inline-block;
-  background-color: yellow;
-  border-radius: 5px;
-  height: auto;
-  font-size: 0.4em;
-  line-height: 0.4em;
-  padding: 2px;
-  vertical-align: top;
-  color: #191814;
-  margin-top: 0.4em; }
-
-.contact__content__form__childrenNumber, .contact__content__form__childrenAges {
-  display: none; }
 
 .about__section__contentContainer:after, .home__section__contentContainer:after, .contact__section__contentContainer:after, .services__section__contentContainer:after, .prices__section__contentContainer:after {
   content: " ";
@@ -338,7 +313,6 @@ nav ul li a {
       background-size: 61px 61px; } }
 
 .page__nav__contact__phone__div {
-  display: none;
   color: #a27e00; }
 
 .page__nav__contact__phone__div a {
@@ -350,9 +324,6 @@ nav ul li a {
   vertical-align: top;
   padding-right: 10px;
   float: right; }
-
-.page__aside__contact__div {
-  display: none; }
 
 details {
   display: block;
@@ -416,8 +387,6 @@ article footer {
     display: inline-block;
     padding-right: 80px;
     font-size: 0.8em; }
-  .page__aside__contact__social__div {
-    display: none; }
   .page__nav__reveal__div {
     position: absolute;
     top: 115px;
@@ -425,10 +394,6 @@ article footer {
     background-size: 40px 40px;
     width: 40px;
     height: 40px; }
-  .page__nav__phone__div {
-    visibility: hidden; }
-  .page__nav__contact__phone__div {
-    display: none; }
   .display {
     left: 0px; }
   .home__section__footer, .about__section__footer, .contact__section__footer, .services__section__footer, .prices__section__footer {
@@ -454,9 +419,7 @@ article footer {
     width: 48%; }
   .contact__content__form__right__right {
     float: right;
-    width: 45%; }
-  .contact__content__form__submit__two {
-    display: none; } }
+    width: 45%; } }
 
 @media only screen and (min-width: 1025px) {
   body {
@@ -499,8 +462,6 @@ article footer {
   .page__nav__ul {
     text-align: right;
     background-color: rgba(4, 41, 75, 0.3); }
-  .page__nav__reveal__div {
-    visibility: hidden; }
   nav ul {
     width: 100%; }
   .home__section__header, .about__section__header, .contact__section__header, .services__section__header, .prices__section__header {

@@ -71,7 +71,6 @@ input[type="submit"] {
   background-color: $goldColor;
   font-size: 1.5em;
   color: #fff;
-  cursor: pointer;
 }
 
 input[type="checkbox"] {
@@ -122,14 +121,6 @@ textarea {
   bottom: 35px
 }
 
-.page__header__span {
-  display: block;
-  position: absolute;
-  top: -100px;
-  left: 30px;
-  color: $blackColor;
-}
-
 .page__aside {
   z-index: 900;
   position: fixed;
@@ -144,6 +135,7 @@ textarea {
   background-size: cover;
   background-position: top center;
   position: relative;
+  height: 1024px;
 }
 
 .about__splash {
@@ -202,11 +194,11 @@ textarea {
 
 .home__section__mainContent {
   clear: both;
-  display: none;
   color: #fff;
   font-size: 0.8em;
   position: static;
   padding: 5px;
+  display: block;
 }
 
 .home__section__mainContent p, .about__section__mainContent p, .contact__section__mainContent p {
@@ -224,11 +216,9 @@ textarea {
   bottom: 80px;
   margin: 0 auto;
   width: 100%;
-  display: none;
 }
 
 .home__splash__continue {
-  display: none;
   color: #fff;
   text-align: center;
   position: absolute;
@@ -237,6 +227,7 @@ textarea {
   width: 100%;
   background-color: rgba(4,41,75,0.3);
   padding: 10px 0 5px 0;
+  display: block;
 }
 
 .about__section__header, .contact__section__header, .services__section__header, .prices__section__header {
@@ -252,6 +243,8 @@ textarea {
   position: relative;
   top: 120px;
   background-color: rgba(4, 41, 75, 0.3);
+  max-height: 620px;
+  overflow: hidden;
 }
 
 .about__section__contentBorder, .contact__section__contentBorder, .services__section__contentBorder, .prices__section__contentBorder {
@@ -264,6 +257,7 @@ textarea {
   overflow: scroll;
   max-height: 75%;
   background-color: rgba(4, 41, 75, 0.3);
+  max-height: 580px;
 }
 
 .contact__content__form__inner__div {
@@ -276,27 +270,7 @@ textarea {
     clear: both;
 }
 
-.contact__content__form__inner__required__span {
-  font-size: 0.6em;
-  line-height: 0.6em;
-  vertical-align: 0.7em;
-}
-
-.contact__content__form__required {
-  display: inline-block;
-  background-color: yellow;
-  border-radius: 5px;
-  height: auto;
-  font-size: 0.4em;
-  line-height: 0.4em;
-  padding: 2px;
-  vertical-align: top;
-  color: $blackColor;
-  margin-top: 0.4em;
-}
-
 .contact__content__form__childrenNumber, .contact__content__form__childrenAges {
-  display: none;
 }
 
 .about__section__contentContainer:after, .home__section__contentContainer:after, .contact__section__contentContainer:after, .services__section__contentContainer:after, .prices__section__contentContainer:after {
@@ -409,7 +383,6 @@ nav ul li a {
 }
 
 .page__nav__contact__phone__div {
-  display: none;
   color: $goldColor;
 }
 
@@ -426,7 +399,6 @@ nav ul li a {
 }
 
 .page__aside__contact__div {
-  display: none;
 }
 
 details {
@@ -513,7 +485,6 @@ article footer {
   }
 
   .page__aside__contact__social__div {
-    display: none;
   }
 
   .page__nav__reveal__div {
@@ -526,11 +497,9 @@ article footer {
   }
 
   .page__nav__phone__div {
-    visibility: hidden;
   }
 
   .page__nav__contact__phone__div {
-    display: none;
   }
 
   .display {
@@ -579,7 +548,6 @@ article footer {
   }
 
   .contact__content__form__submit__two {
-    display: none;
   }
 
 }
@@ -647,7 +615,6 @@ article footer {
   }
 
   .page__nav__reveal__div {
-    visibility: hidden;
   }
 
   nav ul {
