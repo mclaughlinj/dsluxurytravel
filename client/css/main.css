@@ -201,7 +201,7 @@ textarea {
   padding: 10px 0 5px 0; }
 
 .home__section__contentBorder, .about__section__contentBorder, .contact__section__contentBorder, .services__section__contentBorder, .prices__section__contentBorder {
-  padding: 5px;
+  padding: 5px 5px 0 5px;
   position: relative;
   top: 120px;
   background-color: rgba(4, 41, 75, 0.3);
@@ -244,12 +244,12 @@ textarea {
 .contact__content__form__childrenNumber, .contact__content__form__childrenAges {
   display: none; }
 
-.about__section__contentContainer:after, .home__section__contentContainer:after, .contact__section__contentContainer:after, .services__section__contentContainer:after, .prices__section__contentContainer:after {
+.about__section__contentBorder:after, .home__section__contentBorder:after, .about__section__contentBorder:after, .contact__section__contentBorder:after, .services__section__contentBorder:after, .prices__section__contentBorder:after, .contact__section__contentBorder:after, .services__section__contentBorder:after, .prices__section__contentBorder:after {
   content: " ";
-  position: absolute;
+  position: relative;
   height: 50px;
-  bottom: 5px;
-  left: 5px;
+  bottom: 10px;
+  left: 0px;
   box-sizing: border-box;
   padding: 0 50%;
   background: -webkit-linear-gradient(rgba(4, 41, 75, 0), #04294b);
@@ -531,20 +531,20 @@ article footer {
     padding: 10px 10px 20px 10px; }
   .home__section__contentBorder, .about__section__contentBorder, .contact__section__contentBorder, .services__section__contentBorder, .prices__section__contentBorder, .services__section__contentBorder {
     width: 640px;
-    padding: 20px;
+    padding: 20px 20px 0 20px;
     margin-left: 100px;
     top: 0; }
   .about__section__contentBorder, .prices__section__contentBorder {
     float: right;
     width: 640px;
-    padding: 20px;
+    padding: 20px 20px 0 20px;
     margin-right: 80px;
     top: 0; }
   .contact__section__contentBorder {
     width: 80%; }
-  .about__section__contentContainer:after, .home__section__contentContainer:after, .contact__section__contentContainer:after, .services__section__contentContainer:after, .prices__section__contentContainer:after {
-    bottom: 20px;
-    left: 20px;
+  .about__section__contentBorder:after, .home__section__contentBorder:after, .about__section__contentBorder:after, .contact__section__contentBorder:after, .services__section__contentBorder:after, .prices__section__contentBorder:after, .contact__section__contentBorder:after, .services__section__contentBorder:after, .prices__section__contentBorder:after {
+    bottom: 25px;
+    left: 0;
     height: 50px; }
   .contact__content__form {
     font-size: 0.8em; }
