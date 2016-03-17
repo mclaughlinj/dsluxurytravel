@@ -43,7 +43,7 @@ $( document ).ready(function() {
   $('a[href^="#"]').click(function(){
       var anchor = $.attr(this, 'href');
       $root.animate({
-          scrollTop: $('[name="' + $.attr(this, 'href').substr(1) + '"]').offset().top
+          scrollTop: $('[id="' + $.attr(this, 'href').substr(1) + '"]').offset().top
       }, 500, function () {
         window.location.hash = anchor;
     });
@@ -53,13 +53,13 @@ $( document ).ready(function() {
   // show child details on contact form
   $('input[name="kids"]').click(function() {
     if($(this).is(':checked')) {
-      $('.contact__content__form__childrenNumber, .contact__content__form__childrenAges').toggle().children('input').prop('required', true);
+      $('.contact__content__form__childrenNumber, .contact__content__form__childrenAges').fadeIn(200).children('input').prop('required', true);
     } else {
-      $('.contact__content__form__childrenNumber, .contact__content__form__childrenAges').toggle().children('input').prop('required', false);
+      $('.contact__content__form__childrenNumber, .contact__content__form__childrenAges').fadeOut(200).children('input').prop('required', false);
     }
   });
 
-  // send contact form
+  // contact form validation
   $('.contact__content__form__submit, .contact__content__form__submit__two').click(function(e){
     e.preventDefault();
     var requiredFieldCount = $('input:required').length;
@@ -67,39 +67,20 @@ $( document ).ready(function() {
     $('input:required').each(function() {
       if ($(this).val()) {
         requiredFieldsFilled++
+        $(this).css('background-color','#fff');
+      } else {
+        $(this).css('background-color','yellow');
       }
     });
     if (requiredFieldsFilled !== requiredFieldCount) {
-      alert('Please fill in the form');
-      $('input:required').css('background-color','yellow');
-
+      $('input:required').each(function() {
+        if (!$(this).val()) {
+          $(this).focus();
+          return false;
+        }
+      });
     } else {
-      $('.contact__content__form__submit').prop('disabled', true);
-      var emailOptions = {
-        email: $('input[name="email"]').val(),
-        name: $('input[name="name"]').val(),
-        address: $('textarea[name="address"]').val(),
-        phoneDay: $('input[name="phoneDay"]').val(),
-        phoneEve: $('input[name="phoneEve"]').val(),
-        pickUp: $('textarea[name="pickUp"]').val(),
-        date: $('input[name="date"]').val(),
-        time: $('input[name="time"]').val(),
-        dropOff: $('textarea[name="dropOff"]').val(),
-        number: $('input[name="number"]').val(),
-        kids: $('input[name="kids"]').val(),
-        kidsNumber: $('input[name="kidsNumber"]').val(),
-        kidsAges: $('input[name="kidsAges"]').val(),
-        special: $('textarea[name="special"]').val()
-      };
-      post('/',emailOptions,function(response){
-          console.log(emailOptions);
-          if(response.success)
-          {
-              $('.contact__content__form__div').empty().html('Thank you for your enquiry.  I\'ll be in touch shortly.');
-          } else {
-              $('.contact__content__form__div').empty().html('There was a problem !');
-          }
-      })
+      sendMail();
     }
   });
 //
@@ -138,6 +119,34 @@ $( document ).ready(function() {
 // });
 
 });
+
+function sendMail() {
+  $('.contact__content__form__submit').prop('disabled', true);
+  var emailOptions = {
+    email: $('input[name="email"]').val(),
+    name: $('input[name="name"]').val(),
+    address: $('textarea[name="address"]').val(),
+    phoneDay: $('input[name="phoneDay"]').val(),
+    phoneEve: $('input[name="phoneEve"]').val(),
+    pickUp: $('textarea[name="pickUp"]').val(),
+    date: $('input[name="date"]').val(),
+    time: $('input[name="time"]').val(),
+    dropOff: $('textarea[name="dropOff"]').val(),
+    number: $('input[name="number"]').val(),
+    kids: $('input[name="kids"]').val(),
+    kidsNumber: $('input[name="kidsNumber"]').val(),
+    kidsAges: $('input[name="kidsAges"]').val(),
+    special: $('textarea[name="special"]').val()
+  };
+  post('/',emailOptions,function(response){
+      if(response.success)
+      {
+          $('.contact__content__form__div').empty().html('Thank you for your enquiry.  I\'ll be in touch shortly.');
+      } else {
+          $('.contact__content__form__div').empty().html('There was a problem !');
+      }
+  })
+};
 
 $( window ).resize(function() {
   viewHeight = $( window ).height() + 20 + 'px',

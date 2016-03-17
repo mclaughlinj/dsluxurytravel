@@ -72,6 +72,8 @@ input[type="submit"] {
   font-size: 1.5em;
   color: #fff;
   cursor: pointer;
+  -webkit-appearance: none;
+  padding: 5px
 }
 
 input[type="checkbox"] {
@@ -252,6 +254,7 @@ textarea {
   position: relative;
   top: 120px;
   background-color: rgba(4, 41, 75, 0.3);
+  overflow: hidden;
 }
 
 .about__section__contentBorder, .contact__section__contentBorder, .services__section__contentBorder, .prices__section__contentBorder {
@@ -261,7 +264,7 @@ textarea {
 
 .about__section__contentContainer, .home__section__contentContainer, .contact__section__contentContainer, .services__section__contentContainer, .prices__section__contentContainer {
   padding: 20px 10px 40px;
-  overflow: scroll;
+  overflow-y: auto;
   max-height: 75%;
   background-color: rgba(4, 41, 75, 0.3);
 }
@@ -308,6 +311,9 @@ textarea {
   box-sizing: border-box;
   padding: 0 50%;
   background: -webkit-linear-gradient( rgba(4, 41, 75, 0), rgba(4, 41, 75, 1));
+  background: -o-linear-gradient(rgba(4, 41, 75, 0),rgba(4, 41, 75, 1)); /*Opera 11.1-12*/
+  background: -moz-linear-gradient(rgba(4, 41, 75, 0),rgba(4, 41, 75, 1)); /*Fx 3.6-15*/
+  background: linear-gradient(rgba(4, 41, 75, 0), rgba(4, 41, 75, 1)); /*Standard*/
 }
 
 .about__section__footer, .contact__section__footer, .services__section__footer, .prices__section__footer {

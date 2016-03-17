@@ -4,6 +4,9 @@ var nodemailer = require('nodemailer');
 var sendmailTransport = require('nodemailer-sendmail-transport');
 var smtpTransport = require("nodemailer-smtp-transport")
 
+var app = express();
+
+
 /* GET home page. */
 router.get('/', function(req, res) {
   res.render('home', {pageTitle: 'DS Luxury Travel Private Driver Services'});
@@ -26,30 +29,33 @@ router.post('/', function(req, res){
     }
   })));
 
-
-
   // setup e-mail data with unicode symbols
-  var mailOptions = {
-      from: 'dslt.mailer@gmail.com', // sender address
-      to: 'dsluxurytravel@gmail.com', // list of receivers
-      subject: 'DS Luxury Travel Web Enquiry', // Subject line
-      text: 'Client name: ' + req.body.name
-       + '\nClient email: ' + req.body.email
-       + '\nClient address: ' + req.body.address
-       + '\nClient phone (daytime): ' + req.body.phoneDay
-       + '\nClient phone (evening): ' + req.body.phoneEve
-       + '\n\nPick-up location: ' + req.body.pickUp
-       + '\nPick-up date: ' + req.body.date
-       + '\nPick-up time: ' + req.body.time
-       + '\n\nDrop-off location: ' + req.body.dropOff
-       + '\n\nTotal number of passengers: ' + req.body.number
-       + '\n\nIncludes children: ' + req.body.kids
-       + '\nNumber of children: ' + req.body.kidsNumber
-       + '\nAges of children: ' + req.body.kidsAges
-       + '\n\nMessage: ' + req.body.special
+  var mailOptions = {};
+  console.log(app.get('env'));
+  mailOptions = {
+    from: 'dslt.mailer@gmail.com', // sender address
+    to: 'dsluxurytravel@gmail.com', // list of receivers
+    subject: 'DS Luxury Travel Web Enquiry', // Subject line
+    text: 'Client name: ' + req.body.name
+     + '\nClient email: ' + req.body.email
+     + '\nClient address: ' + req.body.address
+     + '\nClient phone (daytime): ' + req.body.phoneDay
+     + '\nClient phone (evening): ' + req.body.phoneEve
+     + '\n\nPick-up location: ' + req.body.pickUp
+     + '\nPick-up date: ' + req.body.date
+     + '\nPick-up time: ' + req.body.time
+     + '\n\nDrop-off location: ' + req.body.dropOff
+     + '\n\nTotal number of passengers: ' + req.body.number
+     + '\n\nIncludes children: ' + req.body.kids
+     + '\nNumber of children: ' + req.body.kidsNumber
+     + '\nAges of children: ' + req.body.kidsAges
+     + '\n\nMessage: ' + req.body.special
   };
+  if (app.get('env') === 'development') {
+    mailOptions.to = 'development@modpsy.com';
+  }
 
-          console.log(mailOptions);
+  console.log(mailOptions);
 
   transporterSmpt.sendMail(mailOptions, function (error, response) {
       //Email not sent

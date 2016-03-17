@@ -50,7 +50,9 @@ input[type="submit"] {
   background-color: #a27e00;
   font-size: 1.5em;
   color: #fff;
-  cursor: pointer; }
+  cursor: pointer;
+  -webkit-appearance: none;
+  padding: 5px; }
 
 input[type="checkbox"] {
   width: auto; }
@@ -202,14 +204,15 @@ textarea {
   padding: 5px;
   position: relative;
   top: 120px;
-  background-color: rgba(4, 41, 75, 0.3); }
+  background-color: rgba(4, 41, 75, 0.3);
+  overflow: hidden; }
 
 .about__section__contentBorder, .contact__section__contentBorder, .services__section__contentBorder, .prices__section__contentBorder {
   top: 100px; }
 
 .about__section__contentContainer, .home__section__contentContainer, .contact__section__contentContainer, .services__section__contentContainer, .prices__section__contentContainer {
   padding: 20px 10px 40px;
-  overflow: scroll;
+  overflow-y: auto;
   max-height: 75%;
   background-color: rgba(4, 41, 75, 0.3); }
 
@@ -249,7 +252,13 @@ textarea {
   left: 5px;
   box-sizing: border-box;
   padding: 0 50%;
-  background: -webkit-linear-gradient(rgba(4, 41, 75, 0), #04294b); }
+  background: -webkit-linear-gradient(rgba(4, 41, 75, 0), #04294b);
+  background: -o-linear-gradient(rgba(4, 41, 75, 0), #04294b);
+  /*Opera 11.1-12*/
+  background: -moz-linear-gradient(rgba(4, 41, 75, 0), #04294b);
+  /*Fx 3.6-15*/
+  background: linear-gradient(rgba(4, 41, 75, 0), #04294b);
+  /*Standard*/ }
 
 .arrow-up {
   width: 0;
