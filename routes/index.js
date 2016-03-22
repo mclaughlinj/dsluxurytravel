@@ -9,7 +9,7 @@ var app = express();
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('home', {pageTitle: 'DS Luxury Travel Private Driver Services'});
+  res.render('home', {pageTitle: 'DS Luxury Travel Private Executive Car Driver Service'});
 });
 
 router.post('/', function(req, res){

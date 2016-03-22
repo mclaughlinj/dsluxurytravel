@@ -69,6 +69,8 @@ app.use(express.static(path.join(__dirname, 'client')));
 app.use(favicon(path.join(__dirname, 'client', 'favicon.ico')));
 
 app.use('/', routes);
+app.use('/m', routes);
+app.use('/mobile', routes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
