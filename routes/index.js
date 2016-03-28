@@ -34,7 +34,7 @@ router.post('/', function(req, res){
   console.log(app.get('env'));
   mailOptions = {
     from: 'dslt.mailer@gmail.com', // sender address
-    to: 'dsluxurytravel@gmail.com', // list of receivers
+    to: 'dsluxurytravel@gmail.com, mclaughlinj@mac.com', // list of receivers
     subject: 'DS Luxury Travel Web Enquiry', // Subject line
     text: 'Client name: ' + req.body.name
      + '\nClient email: ' + req.body.email
@@ -51,9 +51,9 @@ router.post('/', function(req, res){
      + '\nAges of children: ' + req.body.kidsAges
      + '\n\nMessage: ' + req.body.special
   };
-  if (app.get('env') === 'development') {
-    mailOptions.to = 'development@modpsy.com';
-  }
+//   if (app.get('env') === 'development') {
+//     mailOptions.to = 'development@modpsy.co.uk';
+//   }
 
   console.log(mailOptions);
 
