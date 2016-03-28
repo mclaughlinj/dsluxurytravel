@@ -122,6 +122,10 @@ $( document ).ready(function() {
 
 function sendMail() {
   $('.contact__content__form__submit').prop('disabled', true);
+  var incKids = 'No';
+  if ( $('input[name="kids"]:checked').length ) {
+    incKids = 'Yes';
+  }
   var emailOptions = {
     email: $('input[name="email"]').val(),
     name: $('input[name="name"]').val(),
@@ -133,7 +137,7 @@ function sendMail() {
     time: $('input[name="time"]').val(),
     dropOff: $('textarea[name="dropOff"]').val(),
     number: $('input[name="number"]').val(),
-    kids: $('input[name="kids"]').val(),
+    kids: incKids,
     kidsNumber: $('input[name="kidsNumber"]').val(),
     kidsAges: $('input[name="kidsAges"]').val(),
     special: $('textarea[name="special"]').val()
