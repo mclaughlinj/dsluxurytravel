@@ -118,7 +118,7 @@ app.get('/echo', exposeTemplates, function (req, res) {
 var url = 'mongodb://localhost:27017/dsluxury';
 MongoClient.connect(url, function(err, db) {
   assert.equal(null, err);
-  console.log("Connected correctly to Mongo DB server");
+  console.log("Connected to Mongo DB server");
   db.close();
 });
 

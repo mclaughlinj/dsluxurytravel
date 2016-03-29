@@ -13,7 +13,7 @@ var app = express();
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('home', {pageTitle: 'DS Luxury Travel Private Executive Car Driver Service'});
+  res.render('home', {pageTitle: 'DS Luxury Travel: Executive Private Car Driver & Chauffeur Services'});
 });
 
 var mailUser = 'dslt.mailer@gmail.com';
