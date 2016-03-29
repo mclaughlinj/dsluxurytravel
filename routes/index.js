@@ -2,7 +2,11 @@ var express = require('express');
 var router = express.Router();
 var nodemailer = require('nodemailer');
 var sendmailTransport = require('nodemailer-sendmail-transport');
-var smtpTransport = require("nodemailer-smtp-transport")
+var smtpTransport = require("nodemailer-smtp-transport");
+var MongoClient = require('mongodb').MongoClient;
+var assert = require('assert');
+var ObjectId = require('mongodb').ObjectID;
+var url = 'mongodb://localhost:27017/dsluxury';
 
 var app = express();
 
@@ -10,6 +14,28 @@ var app = express();
 /* GET home page. */
 router.get('/', function(req, res) {
   res.render('home', {pageTitle: 'DS Luxury Travel Private Executive Car Driver Service'});
+});
+
+var mailUser = 'dslt.mailer@gmail.com';
+var mailPass = '';
+
+var findMailUsers = function(db, callback) {
+   var cursor =db.collection('mailUsers').find( { "user": mailUser } );
+   cursor.each(function(err, doc) {
+      assert.equal(err, null);
+      if (doc != null) {
+         mailPass = doc.password;
+      } else {
+         callback();
+      }
+   });
+};
+
+MongoClient.connect(url, function(err, db) {
+  assert.equal(null, err);
+  findMailUsers(db, function() {
+      db.close();
+  });
 });
 
 router.post('/', function(req, res){
@@ -24,8 +50,8 @@ router.post('/', function(req, res){
     port: 587,
     secure: false,
     auth: {
-        user: 'dslt.mailer@gmail.com',
-        pass: 'Gpw-yVZ-STn-e3g'
+        user: mailUser,
+        pass: mailPass
     }
   })));
 
@@ -51,9 +77,9 @@ router.post('/', function(req, res){
      + '\nAges of children: ' + req.body.kidsAges
      + '\n\nMessage: ' + req.body.special
   };
-//   if (app.get('env') === 'development') {
-//     mailOptions.to = 'development@modpsy.co.uk';
-//   }
+  if (app.get('env') === 'development') {
+    mailOptions.to = 'development@modpsy.co.uk';
+  }
 
   console.log(mailOptions);
 

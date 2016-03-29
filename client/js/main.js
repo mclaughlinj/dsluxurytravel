@@ -147,7 +147,7 @@ function sendMail() {
       {
           $('.contact__content__form__div').empty().html('Thank you for your enquiry.  I\'ll be in touch shortly.');
       } else {
-          $('.contact__content__form__div').empty().html('There was a problem !');
+          $('.contact__content__form__div').empty().html('There was a problem sending your information. Please call me on +44 (0)7492 727 377 to discuss your requirements.');
       }
   })
 };

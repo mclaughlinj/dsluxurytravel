@@ -8,6 +8,10 @@ var bodyParser = require('body-parser');
 var nodemailer = require('nodemailer');
 var sendmailTransport = require('nodemailer-sendmail-transport');
 var forever = require('forever');
+var MongoClient = require('mongodb').MongoClient;
+var assert = require('assert');
+var ObjectId = require('mongodb').ObjectID;
+var url = 'mongodb://localhost:27017/dsluxury';
 
 var routes = require('./routes/index');
 
@@ -108,6 +112,14 @@ app.use(function(err, req, res, next) {
 
 app.get('/echo', exposeTemplates, function (req, res) {
     console.log(templates);
+});
+
+//check mongo is running
+var url = 'mongodb://localhost:27017/dsluxury';
+MongoClient.connect(url, function(err, db) {
+  assert.equal(null, err);
+  console.log("Connected correctly to Mongo DB server");
+  db.close();
 });
 
 app.listen(3030);
